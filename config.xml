@@ -26,4 +26,14 @@
     </platform>
     <preference name="Orientation" value="portrait"/>
     <preference name="Fullscreen" value="true"/>
+    <cocoon:plugin name="cocoon-plugin-notifications-android-local"/>
+    <cocoon:plugin name="cocoon-plugin-notifications-ios-local"/>
+    <cocoon:plugin name="cocoon-plugin-notifications-android-parse">
+        <param name="APP_ID" value=""/>
+        <param name="CLIENT_KEY" value=""/>
+    </cocoon:plugin>
+    <cocoon:plugin name="cocoon-plugin-notifications-ios-parse">
+        <param name="APP_ID" value=""/>
+        <param name="CLIENT_KEY" value=""/>
+    </cocoon:plugin>
 </widget>
