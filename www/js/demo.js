@@ -36,7 +36,7 @@
                     alert('Received push notification: ' + JSON.stringify(userData));
                 });
 
-                pushService.initialize({appId: "HzEoGOQvoLgFa0vtsowsljQP4g3KBO3p6N033WZx", clientKey: "gKtKVnIg4JKAc5O5hbk8tHshAU4LDv0iEJ1VSlDO"}, function(registered, error){
+                pushService.initialize({}, function(registered, error){
                     pushService.registered = registered;
                     if (error) {
                         alert('Error initializing Parse:' + error.message);
