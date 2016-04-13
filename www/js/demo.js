@@ -128,8 +128,6 @@
         });
 
         function sendClientPush() {
-            console.log("sending client push");
-
             index++;
             var notification = {
                 message : "Hi, I am a notification",
@@ -155,14 +153,10 @@
         btnSend = createButton(push ? "Send client test push notification" : "Send local notification (5 sec)", function(){
 
             if (!testchannel) {
-                console.log("test channel not created, creating one");
-
                 var rand = Math.floor((Math.random() * 100) + 1);
                 testchannel = "testchannel" + rand;
 
                 targetService.subscribe(testchannel, function(error){
-                    console.log("subscribed to the test channel: " + testchannel);
-
                     if (error) {
                         alert('Error: ' + error.message);
                         return;
@@ -172,8 +166,6 @@
                 });
 
             } else {
-                console.log("test channel already created: " + testchannel);
-
                 sendClientPush();
             }
         });
