@@ -9,6 +9,7 @@
     var localService;
     var pushService;
     var lastNotification;
+    var testchannel;
 
     var container;
 
@@ -126,8 +127,8 @@
             });
         });
 
-
-        btnSend = createButton(push ? "Send client test push notification" : "Send local notification (5 sec)", function(){
+        function sendClientPush() {
+            console.log("sending client push");
 
             index++;
             var notification = {
@@ -137,7 +138,8 @@
                 userData : {"key1" : "value1", "key2": "value2", "index": index},
                 contentBody : "",
                 contentTitle : "",
-                date : new Date().valueOf() + 5000
+                date : new Date().valueOf() + 5000,
+                channels: [ testchannel ]
             };
             lastNotification = notification;
             targetService.send(notification, function(error){
@@ -147,6 +149,33 @@
                 }
 
             });
+        }
+
+
+        btnSend = createButton(push ? "Send client test push notification" : "Send local notification (5 sec)", function(){
+
+            if (!testchannel) {
+                console.log("test channel not created, creating one");
+
+                var rand = Math.floor((Math.random() * 100) + 1);
+                testchannel = "testchannel" + rand;
+
+                targetService.subscribe(testchannel, function(error){
+                    console.log("subscribed to the test channel: " + testchannel);
+
+                    if (error) {
+                        alert('Error: ' + error.message);
+                        return;
+                    }
+
+                    sendClientPush();    
+                });
+
+            } else {
+                console.log("test channel already created: " + testchannel);
+
+                sendClientPush();
+            }
         });
 
         var btnResetBadge = createButton("Reset badge number", function(){
