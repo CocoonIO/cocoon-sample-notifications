@@ -1,12 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.cocoon.sample.notifications" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cocoon="http://cocoon.io/ns/1.0">
     <name>Cocoon notifications demo</name>
-    <description>
-        Demo to showcase the Cocoon local and push notifications plugins.
-    </description>
-    <author email="support@cocoon.io" href="http://cocoon.io">
-        Cocoon team
-    </author>
+    <description>Demo to showcase the Cocoon local and push notifications plugins.</description>
+    <author email="support@cocoon.io" href="http://cocoon.io">Cocoon team</author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <access origin="*" />
@@ -26,16 +22,16 @@
     </platform>
     <preference name="Orientation" value="portrait"/>
     <preference name="Fullscreen" value="true"/>
-    <cocoon:plugin name="cocoon-plugin-notifications-android-local"/>
-    <cocoon:plugin name="cocoon-plugin-notifications-ios-local"/>
-    <cocoon:plugin name="cocoon-plugin-notifications-android-parse">
+    <plugin name="cocoon-plugin-notifications-android-local"/>
+    <plugin name="cocoon-plugin-notifications-ios-local"/>
+    <plugin name="cocoon-plugin-notifications-android-parse">
         <param name="APP_ID" value=""/>
         <param name="CLIENT_KEY" value=""/>
-    </cocoon:plugin>
-    <cocoon:plugin name="cocoon-plugin-notifications-ios-parse">
+    </plugin>
+    <plugin name="cocoon-plugin-notifications-ios-parse">
         <param name="APP_ID" value=""/>
         <param name="CLIENT_KEY" value=""/>
-    </cocoon:plugin>
+    </plugin>
 
         <!-- ANDROID -->
     <platform name="android">
